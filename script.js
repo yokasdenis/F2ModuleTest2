@@ -7,7 +7,7 @@ function closeToggle() {
   const toggledContent = document.getElementById("sideBar");
   toggledContent.remove();
 }
-alert("open project in microsoft edge);
+window.alert("open project in microsoft edge);
 function sideBar() {
   const body = document.getElementById("body");
   const sideBarElement = document.createElement("div");
