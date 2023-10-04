@@ -7,7 +7,7 @@ function closeToggle() {
   const toggledContent = document.getElementById("sideBar");
   toggledContent.remove();
 }
-window.alert("open project in microsoft edge);
+
 function sideBar() {
   const body = document.getElementById("body");
   const sideBarElement = document.createElement("div");
@@ -147,7 +147,7 @@ let data = [
     rating: 4.9,
   },
 ];
-alert("open")
+window.alert("open")
 //searh function
 function filterDataOnInputChange() {
   clearBody();
