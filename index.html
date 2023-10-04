@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cook Pal</title>
+  <link rel="shortcut icon" href="Cookpal1.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+
+<body id="body">
+  <!-- nav bar -->
+  <header>
+    <nav id="nav">
+      <div id="side-bar-toggle">
+        <i class="fa-solid fa-bars fa-shake fa-xl" style="color: #509e2f"></i>
+      </div>
+      <div class="logo" id="logo">
+        <img src="Cookpal1.jpg" alt="logo" />
+      </div>
+      <div class="links">
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Help</a>
+        <div id="profile"></div>
+      </div>
+    </nav>
+  </header>
+  <!-- banner -->
+  <div id="banner">
+    <div>
+      <p>Trending now</p>
+      <h4>Mike's famous salad with cheese</h4>
+      <span>By John Mike</span>
+    </div>
+  </div>
+  <!-- search functionality -->
+  <h4 id="searchTitle">Search For Recipes</h4>
+  <div id="searchDiv">
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+      <path
+        d="M7.79167 13.9583C10.9213 13.9583 13.4583 11.4213 13.4583 8.29167C13.4583 5.16205 10.9213 2.625 7.79167 2.625C4.66205 2.625 2.125 5.16205 2.125 8.29167C2.125 11.4213 4.66205 13.9583 7.79167 13.9583Z"
+        stroke="#ADADAD" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M14.875 15.375L11.7937 12.2938" stroke="#ADADAD" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <input type="text" name="search" placeholder="Search for recipes..." id="search" />
+    <button onclick="filterDataOnInputChange()" id="searchButton">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M11.5 4C7.63401 4 4.5 7.13401 4.5 11C4.5 14.866 7.63401 18 11.5 18C15.366 18 18.5 14.866 18.5 11C18.5 7.13401 15.366 4 11.5 4ZM2.5 11C2.5 6.02944 6.52944 2 11.5 2C16.4706 2 20.5 6.02944 20.5 11C20.5 15.9706 16.4706 20 11.5 20C6.52944 20 2.5 15.9706 2.5 11Z"
+          fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M16.4429 15.9429C16.8334 15.5524 17.4666 15.5524 17.8571 15.9429L22.2071 20.2929C22.5977 20.6834 22.5977 21.3166 22.2071 21.7071C21.8166 22.0977 21.1834 22.0977 20.7929 21.7071L16.4429 17.3571C16.0524 16.9666 16.0524 16.3334 16.4429 15.9429Z"
+          fill="white" />
+      </svg>
+    </button>
+  </div>
+  <!-- filter by veg or none veg or all -->
+  <div id="filter">
+    <div class="filterItem item1">
+      <span>All Recipes</span>
+      <svg id="allRecipes" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M14.2697 13L8.9072 7.63749L10.439 6.10565L17.3334 13L10.439 19.8943L8.9072 18.3625L14.2697 13Z"
+          fill="white" />
+      </svg>
+    </div>
+    <div class="filterItem item2">
+      <span>Veg Recipes Only</span>
+      <svg id="vegOnly" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M14.2697 13L8.9072 7.63749L10.439 6.10565L17.3334 13L10.439 19.8943L8.9072 18.3625L14.2697 13Z"
+          fill="white" />
+      </svg>
+    </div>
+    <div class="filterItem item3">
+      <span>None Veg Recipes </span>
+      <svg id="noneVeg" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M14.2697 13L8.9072 7.63749L10.439 6.10565L17.3334 13L10.439 19.8943L8.9072 18.3625L14.2697 13Z"
+          fill="white" />
+      </svg>
+    </div>
+  </div>
+  <!-- main body content where we add our cards -->
+  <div id="bodyContainer">
+    <div id="rating">
+      <h4>Filters</h4>
+      <p>Rating</p>
+      <input onchange="aboveRating(this)" type="radio" name="rating" id="above" />
+      <label for="above">4 and Above</label><br />
+      <input onchange="belowRating(this)" type="radio" name="rating" id="below" />
+      <label for="below">Below 4</label>
+    </div>
+    <!-- where add our cards in js -->
+    <div id="mainBody"></div>
+  </div>
+  <!-- footer section -->
+  <footer id="footer">
+    <div id="footerContainer">
+      <div class="footerItem">
+        <div class="logo">
+          <img src="Cookpal1.jpg" alt="logo" />
+        </div>
+        <div id="footerDiv">
+          Cookpal is a recipe website with a wide variety of delicious
+          recipes, easy-to-use search function. Join our community and let's
+          cook together!
+        </div>
+      </div>
+      <div class="footerCompany">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Activity</a></li>
+        </ul>
+      </div>
+      <div class="footerCompany">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Use Cases</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footerItem lastFooterItem">
+        <div class="logo">
+          <img src="Cookpal1.jpg" alt="logo" />
+        </div>
+        <div id="lastFooterDiv">
+          Ut risus mattis interdum faucibus facilisi. Facilisi purus accumsan
+          aliquam.
+        </div>
+        <div id="finalFooterDiv">
+          <div>
+            <input type="email" name="email" placeholder="Your Email" id="email" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M9.99996 1.66663C5.41663 1.66663 1.66663 5.41663 1.66663 9.99996C1.66663 14.5833 5.41663 18.3333 9.99996 18.3333C11.5 18.3333 12.9166 17.9166 14.1666 17.25C14.5833 17 14.6666 16.5 14.5 16.0833C14.25 15.6666 13.75 15.5833 13.3333 15.75C10.1666 17.5833 6.08329 16.5 4.24996 13.3333C2.41663 10.1666 3.49996 6.08329 6.66663 4.24996C9.83329 2.41663 13.9166 3.49996 15.75 6.66663C16.3333 7.66663 16.6666 8.83329 16.6666 9.99996V10.6666C16.6666 11.5 16 12.1666 15.1666 12.1666C14.3333 12.1666 13.6666 11.5 13.6666 10.6666V7.08329C13.6666 6.58329 13.3333 6.24996 12.8333 6.24996C12.4166 6.24996 12.0833 6.49996 12 6.91663C10.3333 5.74996 7.91663 6.16663 6.74996 7.83329C5.58329 9.49996 5.99996 11.9166 7.66663 13.0833C9.24996 14.1666 11.3333 13.9166 12.5833 12.5C13.6666 13.8333 15.5833 14.0833 16.9166 13.0833C17.6666 12.5 18.1666 11.5833 18.1666 10.5833V9.99996C18.3333 5.41663 14.5833 1.66663 9.99996 1.66663ZM9.99996 12.0833C8.83329 12.0833 7.91663 11.1666 7.91663 9.99996C7.91663 8.83329 8.83329 7.91663 9.99996 7.91663C11.1666 7.91663 12.0833 8.83329 12.0833 9.99996C12.0833 11.1666 11.1666 12.0833 9.99996 12.0833Z"
+                fill="#253D4E" />
+            </svg>
+          </div>
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div id="socialIcons">
+      <i class="fa-brands fa-square-instagram fa-lg"></i>
+      <i class="fa-brands fa-twitter fa-lg"></i>
+      <i class="fa-brands fa-linkedin fa-lg"></i>
+      <i class="fa-brands fa-facebook fa-lg"></i>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
