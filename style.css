@@ -397,4 +397,7 @@ body {
   #footerDiv {
     width: 100%;
   }
+  #bodyContainer{
+    flex-direction: column;
+  }
 }

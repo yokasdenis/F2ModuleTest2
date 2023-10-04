@@ -212,6 +212,7 @@ function displayData(data) {
     mainBody.appendChild(card);
   }
 }
+
 displayData(data);
 
 //clearing the current data on display
