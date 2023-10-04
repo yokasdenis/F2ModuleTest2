@@ -147,7 +147,7 @@ let data = [
     rating: 4.9,
   },
 ];
-
+alert("open")
 //searh function
 function filterDataOnInputChange() {
   clearBody();
