@@ -147,7 +147,7 @@ let data = [
     rating: 4.9,
   },
 ];
-window.alert("open")
+window.alert("open with microsoft edge")
 //searh function
 function filterDataOnInputChange() {
   clearBody();
